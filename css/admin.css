@@ -1,0 +1,139 @@
+.admin-container {
+
+    max-width: 900px;
+
+    margin: 50px auto;
+
+    padding: 20px;
+
+}
+
+
+.admin-container > h1 {
+
+    text-align: center;
+
+    color: #b89525;
+
+}
+
+
+.admin-container > p {
+
+    text-align: center;
+
+}
+
+
+.admin-card {
+
+    background: white;
+
+    padding: 30px;
+
+    margin: 25px 0;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+.admin-card h2 {
+
+    margin-bottom: 20px;
+
+}
+
+
+.admin-card label {
+
+    display: block;
+
+    margin-top: 15px;
+
+    font-weight: bold;
+
+}
+
+
+.admin-card input,
+.admin-card select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin: 8px 0;
+
+    border: 1px solid #ddd;
+
+    border-radius: 5px;
+
+}
+
+
+.admin-card button {
+
+    margin-top: 10px;
+
+}
+
+
+#adminMessage {
+
+    margin-top: 15px;
+
+    font-weight: bold;
+
+}
+
+
+#trackingResult {
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background: #faf8f3;
+
+}
+
+.admin-card {
+    color: #222;
+}
+
+.admin-card input,
+.admin-card select {
+    color: #222;
+    background: #fff;
+    font: inherit;
+}
+
+.admin-card button {
+    padding: 11px 18px;
+    border: 0;
+    background: #d4af37;
+    color: #171717;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#adminMessage,
+#trackingResult {
+    color: #222;
+}
+
+@media (max-width: 600px) {
+    .admin-container {
+        margin: 20px auto;
+        padding: 14px;
+    }
+
+    .admin-card {
+        padding: 20px;
+    }
+}

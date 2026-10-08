@@ -1,0 +1,227 @@
+.calculator-section {
+    background: #f4f0e5;
+}
+
+
+.calculator-box {
+
+    max-width: 600px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.1);
+
+    text-align: left;
+}
+
+
+.calculator-box label {
+
+    display: block;
+
+    margin-top: 15px;
+
+    font-weight: bold;
+
+}
+
+
+.calculator-box input,
+.calculator-box select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 7px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 5px;
+
+}
+
+
+.calculator-box button {
+
+    margin-top: 20px;
+
+    width: 100%;
+
+}
+
+
+.result {
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    background: #faf8f3;
+
+    border-left: 4px solid #d4af37;
+
+}
+
+
+#exchangeResult,
+#buybackResult,
+#purityResult {
+
+    margin-top: 15px;
+
+    padding: 10px;
+
+    background: #faf8f3;
+
+}
+
+.metal-rates,
+.rate-history,
+.calculator-section,
+.exchange-section,
+.buyback-section,
+.purity-section {
+    padding: 72px 5%;
+    color: #f4f1e7;
+    background: #121212;
+}
+
+.rates-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.rate-card {
+    padding: 26px;
+    border: 1px solid #34312a;
+    background: #1b1a17;
+    text-align: center;
+}
+
+.rate-value {
+    margin: 14px 0 5px;
+    color: #efd57c;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.rate-update {
+    margin-top: 20px;
+    color: #aaa;
+    text-align: center;
+}
+
+.history-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.history-buttons button,
+.calculator-box button,
+.buyback-section button,
+.purity-section button {
+    padding: 12px 18px;
+    border: 0;
+    background: #d4af37;
+    color: #171717;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+}
+
+.chart-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 18px;
+    border: 1px solid #34312a;
+    background: #1b1a17;
+}
+
+.chart-container canvas {
+    display: block;
+    width: 100%;
+}
+
+.calculator-box {
+    color: #202020;
+    background: #f7f4ea;
+    border-radius: 6px;
+}
+
+.calculator-box input,
+.calculator-box select,
+.buyback-section input,
+.buyback-section select,
+.purity-section input,
+.purity-section select {
+    display: block;
+    min-height: 44px;
+    color: #202020;
+    background: #fff;
+    font: inherit;
+}
+
+.calculation-result,
+#exchangeValue,
+#buybackResult,
+#purityResult {
+    display: block;
+    margin-top: 22px;
+    padding: 18px;
+    background: #ebe5d4;
+    color: #202020;
+}
+
+.exchange-section .calculator-box,
+.buyback-section,
+.purity-section {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.buyback-section h2,
+.purity-section h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.buyback-section input,
+.buyback-section select,
+.purity-section input,
+.purity-section select {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+}
+
+@media (max-width: 640px) {
+    .rates-container {
+        grid-template-columns: 1fr;
+    }
+
+    .rate-value {
+        font-size: 20px;
+    }
+}
+
+.rate-history-note {
+    max-width: 900px;
+    margin: 12px auto 0;
+    color: #aaa;
+    font-size: 12px;
+    text-align: center;
+}

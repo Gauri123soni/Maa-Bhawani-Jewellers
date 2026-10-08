@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Royal Jewellers - premium jewelry shop</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/admin.css">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo">MAA BHAWANI JEWELLERS<span></span></a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#products">Collections</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-icons">
+            <a href="#productSearch" aria-label="Search products"><i class="fas fa-search"></i></a>
+            <a href="pages/login.html" aria-label="Login"><i class="fas fa-user"></i></a>
+            <a href="pages/wishlist.html" aria-label="Wishlist"><i class="fas fa-heart"></i></a>
+            <a href="pages/cart.html" aria-label="Shopping cart">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count">0</span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMenu()"><i class="fas fa-times"></i></button>
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#categories" onclick="toggleMenu()">Categories</a>
+        <a href="#products" onclick="toggleMenu()">Collections</a>
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#testimonials" onclick="toggleMenu()">Reviews</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="hero-content">
+            <p class="hero-subtitle">✦ Since 1955 ✦</p>
+            <h1 class="hero-title">Timeless <span class="highlight">Elegance</span><br>Crafted in Gold</h1>
+            <p class="hero-desc">Discover exquisite handcrafted jewelry that celebrates every precious moment of your life</p>
+            <div class="hero-btns">
+                <a href="#products" class="btn-primary">Shop Collection</a>
+                <a href="#about" class="btn-outline">Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-section">
+        <div class="marquee-content">
+            <span>💎 BIS Hallmark Certified</span>
+            <span>✨ Free Shipping Above ₹50,000</span>
+            <span>🔒 Lifetime Exchange</span>
+            <span>📦 Insured Delivery</span>
+            <span>💳 EMI Available</span>
+            <span>🎁 Gift Wrapping</span>
+            <span>💎 BIS Hallmark Certified</span>
+            <span>✨ Free Shipping Above ₹50,000</span>
+            <span>🔒 Lifetime Exchange</span>
+            <span>📦 Insured Delivery</span>
+            <span>💳 EMI Available</span>
+            <span>🎁 Gift Wrapping</span>
+        </div>
+    </div>
+
+    <!-- LIVE METAL RATES -->
+<section class="metal-rates" id="rates">
+
+    <div class="section-header">
+        <p class="section-tag">Market Update</p>
+        <h2 class="section-title">Today's Metal Rates</h2>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="rates-container">
+
+        <div class="rate-card gold">
+            <div class="rate-icon">🟡</div>
+
+            <h3>24K Gold</h3>
+
+            <p class="rate-value" id="gold24Rate">
+                ₹00,000 / 10g
+            </p>
+
+            <span class="rate-change positive" id="gold24Change">
+                ↑ 0.00%
+            </span>
+
+            <small>Per 10 Gram</small>
+        </div>
+
+
+        <div class="rate-card gold">
+            <div class="rate-icon">🟡</div>
+
+            <h3>22K Gold</h3>
+
+            <p class="rate-value" id="gold22Rate">
+                ₹00,000 / 10g
+            </p>
+
+            <span class="rate-change positive" id="gold22Change">
+                ↑ 0.00%
+            </span>
+
+            <small>Per 10 Gram</small>
+        </div>
+
+
+        <div class="rate-card silver">
+            <div class="rate-icon">⚪</div>
+
+            <h3>Silver</h3>
+
+            <p class="rate-value" id="silverRate">
+                ₹00,000 / kg
+            </p>
+
+            <span class="rate-change negative" id="silverChange">
+                ↓ 0.00%
+            </span>
+
+            <small>Per Kilogram</small>
+        </div>
+
+    </div>
+
+    <p class="rate-update">
+        Last Updated: <span id="rateUpdated">--</span>
+    </p>
+
+</section>
+
+<section class="rate-history">
+
+    <div class="section-header">
+        <p class="section-tag">Market Trends</p>
+        <h2 class="section-title">Gold Rate History</h2>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="history-buttons">
+        <button onclick="showGoldHistory(7)">7 Days</button>
+        <button onclick="showGoldHistory(30)">30 Days</button>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="goldChart"></canvas>
+    </div>
+    <p class="rate-history-note">Illustrative sample trend only; historical market data is not connected.</p>
+
+</section>
+
+<section class="rate-history">
+
+    <div class="section-header">
+        <p class="section-tag">Market Trends</p>
+        <h2 class="section-title">Silver Rate History</h2>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="history-buttons">
+        <button onclick="showSilverHistory(7)">7 Days</button>
+        <button onclick="showSilverHistory(30)">30 Days</button>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="silverChart"></canvas>
+    </div>
+    <p class="rate-history-note">Illustrative sample trend only; historical market data is not connected.</p>
+
+</section>
+
+<section class="calculator-section" id="calculator">
+
+    <div class="section-header">
+        <p class="section-tag">Smart Jewellery Tools</p>
+        <h2 class="section-title">Jewellery Price Calculator</h2>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="calculator-box">
+
+        <label>Metal</label>
+
+        <select id="metal">
+            <option value="gold22">Gold 22K</option>
+            <option value="gold24">Gold 24K</option>
+            <option value="gold18">Gold 18K</option>
+            <option value="silver">Silver</option>
+        </select>
+
+
+        <label>Weight (grams)</label>
+
+        <input
+            type="number"
+            id="weight"
+            placeholder="Enter weight"
+        >
+
+
+        <label>Making Charges (%)</label>
+
+        <input
+            type="number"
+            id="makingCharge"
+            value="10"
+        >
+
+
+        <label>GST (%)</label>
+
+        <input
+            type="number"
+            id="gst"
+            value="3"
+        >
+
+
+        <button onclick="calculatePrice()">
+            Calculate Price
+        </button>
+
+
+        <div class="calculation-result">
+
+            <p>Metal Value:
+                <span id="metalValue">₹0</span>
+            </p>
+
+            <p>Making Charges:
+                <span id="makingValue">₹0</span>
+            </p>
+
+            <p>GST:
+                <span id="gstValue">₹0</span>
+            </p>
+
+            <h3>
+                Final Price:
+                <span id="finalPrice">₹0</span>
+            </h3>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="exchange-section">
+
+    <div class="section-header">
+        <p class="section-tag">Exchange</p>
+        <h2 class="section-title">Old Gold Exchange Calculator</h2>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="calculator-box">
+
+        <label>Old Gold Purity</label>
+
+        <select id="oldGoldPurity">
+            <option value="24">24K</option>
+            <option value="22">22K</option>
+            <option value="18">18K</option>
+        </select>
+
+
+        <label>Old Gold Weight (grams)</label>
+
+        <input
+            type="number"
+            id="oldGoldWeight"
+        >
+
+
+        <label>Deduction (%)</label>
+
+        <input
+            type="number"
+            id="exchangeDeduction"
+            value="5"
+        >
+
+
+        <button onclick="calculateExchange()">
+            Calculate Exchange Value
+        </button>
+
+
+        <h3>
+            Estimated Exchange Value:
+            <span id="exchangeValue">₹0</span>
+        </h3>
+
+    </div>
+
+</section>
+
+<section class="buyback-section">
+
+    <h2>Gold Buyback Calculator</h2>
+
+    <input
+        type="number"
+        id="buybackWeight"
+        placeholder="Weight in grams"
+    >
+
+    <select id="buybackPurity">
+        <option value="22">22K Gold</option>
+        <option value="18">18K Gold</option>
+    </select>
+
+    <input
+        type="number"
+        id="buybackDeduction"
+        value="3"
+        placeholder="Deduction %"
+    >
+
+    <button onclick="calculateBuyback()">
+        Calculate Buyback
+    </button>
+
+    <h3 id="buybackResult">₹0</h3>
+
+</section>
+
+       <section class="purity-section">
+
+    <h2>Gold Purity Converter</h2>
+
+    <label>Gold Weight</label>
+
+    <input type="number" id="purityWeight">
+
+    <label>From Purity</label>
+
+    <select id="fromPurity">
+        <option value="24">24K</option>
+        <option value="22">22K</option>
+        <option value="18">18K</option>
+    </select>
+
+    <label>Convert To</label>
+
+    <select id="toPurity">
+        <option value="24">24K</option>
+        <option value="22">22K</option>
+        <option value="18">18K</option>
+    </select>
+
+    <button onclick="convertPurity()">
+        Convert
+    </button>
+
+    <h3 id="purityResult">
+        Result: 0g
+    </h3>
+
+</section>
+
+
+       
+    <!-- CATEGORIES -->
+    <section class="section categories" id="categories">
+        <div class="section-header">
+            <p class="section-tag">Browse By</p>
+            <h2 class="section-title">Our Categories</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="https://th.bing.com/th/id/OIP.B8TKjxBC6J2-4Phi_frIowHaHa?w=196&h=195&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" alt="Necklaces">
+                <div class="category-overlay">
+                    <h3 class="category-name">Necklaces</h3>
+                    <p class="category-count">120+ Designs</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.5UfO0X19_Xf4woffl1yAPwHaEK?r=0&pid=Api&P=0&h=180" alt="Rings">
+                <div class="category-overlay">
+                    <h3 class="category-name">Rings</h3>
+                    <p class="category-count">200+ Designs</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.yUeG75G0TmkKFWkbnyXfKQHaJ4?r=0&pid=Api&P=0&h=180" alt="Earrings">
+                <div class="category-overlay">
+                    <h3 class="category-name">Earrings</h3>
+                    <p class="category-count">150+ Designs</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400&h=500&fit=crop" alt="Bangles">
+                <div class="category-overlay">
+                    <h3 class="category-name">Bangles</h3>
+                    <p class="category-count">80+ Designs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section class="section products" id="products">
+        <div class="section-header">
+            <p class="section-tag">Our Collection</p>
+            <h2 class="section-title">Best Sellers</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="product-filters">
+            <button class="filter-btn active" onclick="filterProducts(this)">All</button>
+            <button class="filter-btn" onclick="filterProducts(this)">Gold</button>
+            <button class="filter-btn" onclick="filterProducts(this)">Diamond</button>
+            <button class="filter-btn" onclick="filterProducts(this)">Silver</button>
+            <button class="filter-btn" onclick="filterProducts(this)">Platinum</button>
+        </div>
+        <label class="product-search-label" for="productSearch">Search collection</label>
+        <input class="product-search" id="productSearch" type="search" placeholder="Search jewellery by name or material">
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.__WfjrHGpnTJbuC9xnjm7gHaHa?r=0&pid=Api&P=0&h=180" alt="Gold Necklace">
+                    <span class="product-badge">New</span>
+                    <div class="product-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                    <div class="quick-add">Quick Add to Cart</div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Gold Collection</p>
+                    <h3 class="product-name">Royal Kundan Necklace Set</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="product-price">₹1,25,000 <span class="old-price">₹1,45,000</span></p>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop" alt="Diamond Ring">
+                    <span class="product-badge" style="background: #e74c3c; color: white;">-20%</span>
+                    <div class="product-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                    <div class="quick-add">Quick Add to Cart</div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Diamond</p>
+                    <h3 class="product-name">Solitaire Diamond Ring</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="product-price">₹85,000 <span class="old-price">₹1,06,000</span></p>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.sjBkV6aFMrr4dJOMB4Jn1gHaHY?r=0&pid=Api&P=0&h=180" alt="Earrings">
+                    <div class="product-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                    <div class="quick-add">Quick Add to Cart</div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Gold Collection</p>
+                    <h3 class="product-name">Temple Jhumka Earrings</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="product-price">₹42,000</p>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.8ywE3NjZsGoWHx5ZI4peYgHaHa?r=0&pid=Api&P=0&h=180" alt="Bracelet">
+                    <span class="product-badge">Trending</span>
+                    <div class="product-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                    <div class="quick-add">Quick Add to Cart</div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Platinum</p>
+                    <h3 class="product-name">Platinum Chain Bracelet</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="product-price">₹65,000</p>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.S1iUXTNw2TIv8LOhMfCT0QHaHa?r=0&pid=Api&P=0&h=180" alt="Pendant">
+                    <div class="product-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                    <div class="quick-add">Quick Add to Cart</div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Diamond</p>
+                    <h3 class="product-name">Heart Diamond Pendant</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="product-price">₹38,000</p>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.fWgrApLxd2RKhPH7o3HrdAHaJ3?r=0&pid=Api&P=0&h=180" alt="Bangles">
+                    <span class="product-badge" style="background: #e74c3c; color: white;">-15%</span>
+                    <div class="product-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                    <div class="quick-add">Quick Add to Cart</div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Gold Collection</p>
+                    <h3 class="product-name">Traditional Gold Bangles</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="product-price">₹95,000 <span class="old-price">₹1,12,000</span></p>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.3lAl5TFrbk46uJdvlDnZnAHaHa?r=0&pid=Api&P=0&h=180" alt="Silver Ring">
+                    <span class="product-badge">Best Seller</span>
+                    <div class="product-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                    <div class="quick-add">Quick Add to Cart</div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Silver</p>
+                    <h3 class="product-name">Designer Silver Ring</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="product-price">₹5,500</p>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-img">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.J35SYZue6zNtWqimBbecvgHaHa?r=0&pid=Api&P=0&h=180" alt="Mangalsutra">
+                    <div class="product-actions">
+                        <button class="action-btn"><i class="far fa-heart"></i></button>
+                        <button class="action-btn"><i class="fas fa-eye"></i></button>
+                        <button class="action-btn"><i class="fas fa-sync-alt"></i></button>
+                    </div>
+                    <div class="quick-add">Quick Add to Cart</div>
+                </div>
+                <div class="product-info">
+                    <p class="product-category">Gold Collection</p>
+                    <h3 class="product-name">Diamond Mangalsutra</h3>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="product-price">₹72,000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED BANNER -->
+    <div class="featured-banner" id="about">
+        <div class="banner-img">
+            <img src="https://tse2.mm.bing.net/th/id/OIP.Eya3dPGEmwn7CCAkyZe97QHaHZ?r=0&pid=Api&P=0&h=180" alt="Featured Collection">
+        </div>
+        <div class="banner-content">
+            <p class="banner-tag">✦ Limited Edition ✦</p>
+            <h2 class="banner-title">Bridal Collection 2024</h2>
+            <p class="banner-desc">Unveil the beauty of our exclusive bridal collection, handcrafted with love and adorned with the finest diamonds and precious gemstones. Each piece tells a story of eternal love.</p>
+            <p class="banner-price">Starting from ₹75,000</p>
+            <a href="#" class="btn-primary" style="align-self: flex-start;">Explore Now</a>
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <section class="section features">
+        <div class="section-header">
+            <p class="section-tag">Why Choose Us</p>
+            <h2 class="section-title">Our Promise</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+                <h3 class="feature-title">BIS Hallmark</h3>
+                <p class="feature-desc">All our gold jewelry is BIS Hallmark certified ensuring purity and quality</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-exchange-alt"></i></div>
+                <h3 class="feature-title">Lifetime Exchange</h3>
+                <p class="feature-desc">Exchange your old jewelry for new designs with 100% value guaranteed</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-gem"></i></div>
+                <h3 class="feature-title">Certified Diamonds</h3>
+                <p class="feature-desc">Every diamond comes with IGI/GIA certification for authenticity</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-truck"></i></div>
+                <h3 class="feature-title">Insured Shipping</h3>
+                <p class="feature-desc">Free insured delivery across India with tamper-proof packaging</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials" id="testimonials">
+        <div class="section-header">
+            <p class="section-tag">Customer Love</p>
+            <h2 class="section-title">What People Say</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="testimonial-slider">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Amazing quality and designs! Bought my wedding jewelry from Royal Jewellers and every piece was absolutely stunning. Highly recommended!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">P</div>
+                    <div>
+                        <p class="author-name">Priya Sharma</p>
+                        <p class="author-location">Delhi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">The diamond ring I purchased exceeded all expectations. The certification gave me confidence and the design is breathtaking!</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">R</div>
+                    <div>
+                        <p class="author-name">Rahul Verma</p>
+                        <p class="author-location">Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="testimonial-quote">"</div>
+                <p class="testimonial-text">Best jewelry store! Their collection is unique and pricing is very transparent. The staff is incredibly helpful and knowledgeable.</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">A</div>
+                    <div>
+                        <p class="author-name">Anita Patel</p>
+                        <p class="author-location">Jaipur</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section class="section instagram">
+        <div class="section-header">
+            <p class="section-tag">@RoyalJewellers</p>
+            <h2 class="section-title">Follow Us on Instagram</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="insta-grid">
+            <div class="insta-item">
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=300&h=300&fit=crop" alt="Insta 1">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300&h=300&fit=crop" alt="Insta 2">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <img src="https://tse3.mm.bing.net/th/id/OIP.Bd9ZxJGWBfZJn4gABOccYwHaHa?r=0&pid=Api&P=0&h=180" alt="Insta 3">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=300&h=300&fit=crop" alt="Insta 4">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=300&h=300&fit=crop" alt="Insta 5">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=300&h=300&fit=crop" alt="Insta 6">
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="section newsletter" id="contact">
+        <p class="section-tag">Stay Connected</p>
+        <h2 class="newsletter-title">Subscribe for Exclusive Offers</h2>
+        <p class="newsletter-desc">Get the latest designs, offers and gold rate updates directly in your inbox</p>
+        <form class="newsletter-form" id="subscribeForm">
+            <input type="email" id="subscriberEmail" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <p id="subscribeMessage" class="newsletter-desc" style="margin-top: 15px;"></p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">ROYAL <span>Jewellers</span></a>
+                <p>Crafting timeless elegance since 1985. We bring you the finest collection of gold, diamond, and platinum jewelry for every occasion.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Collections</a></li>
+                    <li><a href="#">Gold Rate Today</a></li>
+                    <li><a href="#">Store Locator</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Help</h3>
+                <ul class="footer-links">
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns & Exchange</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-title">Contact Us</h3>
+                <ul class="footer-links footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> Maa Bhawani jewellers, Azad Chauk, Lalsot-302022</li>
+                    <li><i class="fas fa-phone"></i> +91 9783830488</li>
+                     <li><i class="fas fa-phone"></i> +91 9828535123</li>
+                     <li><i class="fas fa-phone"></i> +91 9828383386</li>
+                    <li><i class="fas fa-envelope"></i> info@royaljewellers.com</li>
+                    <li><i class="fas fa-clock"></i> Mon - Sat: 10AM - 6PM</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 <a href="#">Royal Jewellers</a>. All rights reserved.</p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-google-pay"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- WHATSAPP -->
+    <a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/rates.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/wishlist.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="script.js"></script>
+
+     
+</body>
+</html>

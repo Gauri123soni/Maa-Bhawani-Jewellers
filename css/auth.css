@@ -1,0 +1,132 @@
+.auth-container {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111,
+            #3b3218
+        );
+
+}
+
+
+.auth-box {
+
+    width: 400px;
+
+    max-width: 90%;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.3);
+
+    text-align: center;
+
+}
+
+
+.auth-box h1 {
+
+    color: #b89525;
+
+    margin-bottom: 10px;
+
+}
+
+
+.auth-box input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin: 10px 0;
+
+    border: 1px solid #ddd;
+
+    border-radius: 5px;
+
+}
+
+
+.auth-box button {
+
+    width: 100%;
+
+    margin: 15px 0;
+
+}
+
+
+.auth-box a {
+
+    color: #a17e15;
+
+    text-decoration: none;
+
+}
+
+
+#message {
+
+    color: #c0392b;
+
+    margin: 10px 0;
+
+}
+
+.auth-box {
+    color: #24211a;
+}
+
+.auth-box label {
+    display: block;
+    margin: 14px 0 4px;
+    color: #3e3a30;
+    text-align: left;
+    font-size: 14px;
+}
+
+.auth-box input {
+    display: block;
+    margin: 0;
+    color: #222;
+    font: inherit;
+}
+
+.auth-box button {
+    min-height: 46px;
+    border: 0;
+    background: #d4af37;
+    color: #191919;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.auth-box #message {
+    min-height: 22px;
+    color: #26733c;
+}
+
+.auth-box #message.is-error {
+    color: #b42318;
+}
+
+.auth-box > a {
+    display: inline-block;
+    margin-top: 14px;
+}

@@ -1,0 +1,11 @@
+{
+  "name": "maa-bhawani-jewellers",
+  "version": "1.0.0",
+  "description": "Maa Bhawani Jewellers storefront and local demo server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "fastapi": "uvicorn app:app --reload --host 0.0.0.0 --port 8000"
+  }
+}

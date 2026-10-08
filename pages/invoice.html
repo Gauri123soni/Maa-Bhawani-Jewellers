@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Invoice - Maa Bhawani Jewellers</title>
+
+    <link rel="stylesheet"
+          href="../styles.css">
+
+    <style>
+
+        .invoice {
+
+            max-width: 800px;
+
+            margin: 40px auto;
+
+            background: white;
+            color: #1a1a1a;
+
+            padding: 40px;
+
+            box-shadow:
+                0 5px 20px rgba(0,0,0,0.1);
+
+        }
+
+        .invoice-header {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            margin-bottom: 30px;
+
+        }
+
+        table {
+
+            width: 100%;
+
+            border-collapse:
+                collapse;
+
+            margin-top: 20px;
+
+        }
+
+        th,
+        td {
+
+            border: 1px solid #ddd;
+
+            padding: 12px;
+
+            text-align: left;
+
+        }
+
+        .total {
+
+            text-align: right;
+
+            font-size: 22px;
+
+            margin-top: 20px;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="invoice">
+
+    <div class="invoice-header">
+
+        <div>
+
+            <h1>
+                Maa Bhawani Jewellers
+            </h1>
+
+            <p>
+                Jaipur, Rajasthan
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <p>
+                Invoice:
+                <strong id="invoiceCode">Pending</strong>
+            </p>
+
+            <p>
+                Date:
+                <span id="invoiceDate"></span>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+
+
+    <h3>Customer</h3>
+
+    <p>
+        Customer Name:
+        <span id="customerName">
+            Customer
+        </span>
+    </p>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Product</th>
+
+                <th>Quantity</th>
+
+                <th>Price</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="invoiceItems">
+
+        </tbody>
+
+    </table>
+
+
+    <div class="total">
+
+        Total:
+        ₹<span id="invoiceTotal">0</span>
+
+    </div>
+
+
+    <br>
+
+
+    <button onclick="window.print()">
+        Print Invoice
+    </button>
+
+</div>
+
+
+<p id="invoiceMessage" role="status"></p>
+<p><a id="trackingLink" href="order-tracking.html">Track this order</a> · <a href="../index.html">Continue shopping</a></p>
+
+<script>
+const invoiceParams = new URLSearchParams(window.location.search);
+const invoiceOrderCode = invoiceParams.get('order');
+const invoiceMessage = document.getElementById('invoiceMessage');
+const invoiceItems = document.getElementById('invoiceItems');
+const money = value => Number(value || 0).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+async function renderInvoice() {
+    if (!invoiceOrderCode) {
+        invoiceMessage.textContent = 'No order was selected. Place an order from your cart to create an invoice.';
+        return;
+    }
+
+    try {
+        const response = await fetch(`/api/orders/${encodeURIComponent(invoiceOrderCode)}`);
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.message || 'Invoice could not be found.');
+        const order = data.order;
+        document.getElementById('trackingLink').href = `order-tracking.html?order=${encodeURIComponent(order.orderCode)}`;
+        document.getElementById('invoiceCode').textContent = order.orderCode;
+        document.getElementById('invoiceDate').textContent = new Date(order.createdAt).toLocaleDateString('en-IN');
+        document.getElementById('customerName').textContent = order.customer;
+        invoiceItems.replaceChildren(...order.items.map(item => {
+            const row = document.createElement('tr');
+            [item.name, `${item.quantity} × ${money(item.price)}`, money(item.price * item.quantity)].forEach(value => {
+                const cell = document.createElement('td');
+                cell.textContent = value;
+                row.append(cell);
+            });
+            return row;
+        }));
+        document.getElementById('invoiceTotal').textContent = money(order.total);
+        invoiceMessage.textContent = `Order status: ${order.status}`;
+    } catch (error) {
+        invoiceMessage.textContent = error.message;
+    }
+}
+
+renderInvoice();
+</script>
+
+</body>
+
+</html>
